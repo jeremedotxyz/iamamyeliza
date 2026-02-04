@@ -224,4 +224,379 @@
     }
     .tile:hover{
       transform:translateY(-3px);
+      box-shadow:0 18px 40px rgba(0,0,0,.07);
+      border-color:#dedede;
+    }
+    .tile .name{
+      font-weight:650;
+      letter-spacing:.01em;
+      margin:0 0 6px;
+      font-size:14px;
+    }
+    .tile .meta{
+      color:var(--muted);
+      font-size:12px;
+      margin:0;
+      line-height:1.45;
+    }
+
+    .feature{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .featureCard{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      overflow:hidden;
+      background:#fff;
+    }
+    .featureMedia{
+      aspect-ratio: 16 / 10;
+      background:#f3f3f3;
+      overflow:hidden;
+    }
+    .featureMedia img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .5s var(--ease);
+      filter:contrast(1.02) saturate(.95);
+    }
+    .featureCard:hover .featureMedia img{ transform:scale(1.03); }
+    .featureBody{ padding:16px 16px 18px; }
+    .featureBody h3{
+      margin:0 0 6px;
+      font-size:20px;
+      letter-spacing:-.01em;
+    }
+    .featureTag{
+      color:var(--muted);
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      margin:0 0 10px;
+      font-weight:650;
+    }
+    .featureBody p{
+      margin:0 0 14px;
+      color:var(--muted);
+      line-height:1.55;
+      font-size:14px;
+      max-width:60ch;
+    }
+
+    .updates{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      background:#fff;
+    }
+    .updates strong{ font-size:14px; letter-spacing:.01em; }
+    .updates span{
+      display:block;
+      color:var(--muted);
+      font-size:13px;
+      margin-top:3px;
+      line-height:1.4;
+    }
+    .form{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .input{
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:11px 14px;
+      min-width:240px;
+      font-size:13px;
+      outline:none;
+      transition:border-color .2s var(--ease), box-shadow .2s var(--ease);
+    }
+    .input:focus{
+      border-color:#cfcfcf;
+      box-shadow:0 0 0 4px rgba(0,0,0,.06);
+    }
+
+    footer{
+      padding:26px 0 38px;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .footRow{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .footLinks{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .footLinks a:hover{ color:var(--fg); }
+
+    @media (max-width: 980px){
+      .heroGrid{ grid-template-columns: 1fr; }
+      .heroCard{ min-height:420px; }
+      h1{ font-size:40px; }
+      .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .feature{ grid-template-columns: 1fr; }
+      nav.desktop{ display:none; }
+      .menuBtn{ display:inline-flex; }
+      .drawer.open{ display:block; }
+    }
+    @media (max-width: 520px){
+      h1{ font-size:34px; }
+      .grid{ grid-template-columns: 1fr; }
+      .updates{ flex-direction:column; align-items:flex-start; }
+      .form{ width:100%; justify-content:flex-start; }
+      .input{ min-width:0; width:100%; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <div class="topbar">
+        <a class="brand" href="#top" aria-label="Home">
+          <span class="dot" aria-hidden="true"></span>
+          <span>iamamyeliza</span>
+        </a>
+
+        <nav class="desktop" aria-label="Primary">
+          <a href="#now">Now</a>
+          <a href="#collections">Collection</a>
+          <a href="#notes">Notes</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="menuBtn" id="menuBtn" aria-expanded="false" aria-controls="drawer">
+          Menu
+        </button>
+      </div>
+
+      <div class="drawer" id="drawer" aria-label="Mobile menu">
+        <a href="#now">Now</a>
+        <a href="#collections">Collection</a>
+        <a href="#notes">Notes</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="heroGrid">
+          <div class="heroCard" aria-label="Hero image">
+            <!-- Replace this image with YOURS -->
+            <img
+              src="https://images.unsplash.com/photo-1520975682031-ae3dfc5c6f5b?auto=format&fit=crop&w=1800&q=80"
+              alt="Minimal landscape"
+              loading="eager"
+            />
+            <div class="heroOverlay"></div>
+          </div>
+
+          <div class="heroText">
+            <div class="kicker">a small internet room</div>
+            <h1>
+              quiet builders change everything<span class="cursor" aria-hidden="true">▌</span>
+            </h1>
+            <p class="sub">
+              I’m building a safe place for myself and others — soft architecture, low-volume magic,
+              and a collection of moments that meant something. If you found this page, welcome.
+            </p>
+
+            <div class="ctaRow">
+              <a class="btn primary" href="#collections">See what I’m making</a>
+              <a class="btn" href="#notes">Read the notes</a>
+            </div>
+
+            <p class="sectionHint">
+              Not loud. Not rushed. Just right now. (Tay Tay would approve.)
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap"><div class="hairline"></div></div>
+
+    <!-- NOW -->
+    <section id="now">
+      <div class="wrap">
+        <div class="sectionTitle">
+          <h2>Now</h2>
+          <div class="sectionHint">What this page is for</div>
+        </div>
+
+        <div class="grid">
+          <div class="tile">
+            <p class="name">The vibe</p>
+            <p class="meta">Minimal. Warm. Slightly cinematic. Like coffee-shop light at 7pm.</p>
+          </div>
+          <div class="tile">
+            <p class="name">The point</p>
+            <p class="meta">To document becoming — without needing to perform it.</p>
+          </div>
+          <div class="tile">
+            <p class="name">The rule</p>
+            <p class="meta">I don’t outsource my worth. I build it, quietly.</p>
+          </div>
+          <div class="tile">
+            <p class="name">The magic</p>
+            <p class="meta">Invisible confetti. Universe right now = 📝</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLLECTIONS -->
+    <section id="collections">
+      <div class="wrap">
+        <div class="sectionTitle">
+          <h2>Collection</h2>
+          <div class="sectionHint">Replace these with your real categories</div>
+        </div>
+
+        <div class="grid" role="list">
+          <a class="tile" href="#" role="listitem">
+            <p class="name">Photos</p>
+            <p class="meta">Five from each month. A year, revealed all at once.</p>
+          </a>
+          <a class="tile" href="#" role="listitem">
+            <p class="name">Places</p>
+            <p class="meta">Coastal chapters. Airports. Coffee shops. Quiet returns.</p>
+          </a>
+          <a class="tile" href="#" role="listitem">
+            <p class="name">Notes</p>
+            <p class="meta">Short lines that helped me stay soft.</p>
+          </a>
+          <a class="tile" href="#" role="listitem">
+            <p class="name">Work</p>
+            <p class="meta">Projects I’m proud of — no hype required.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURE -->
+    <section id="notes">
+      <div class="wrap">
+        <div class="feature">
+          <article class="featureCard">
+            <div class="featureMedia">
+              <img
+                src="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?auto=format&fit=crop&w=1600&q=80"
+                alt="Light and shadow"
+                loading="lazy"
+              />
+            </div>
+            <div class="featureBody">
+              <div class="featureTag">Note</div>
+              <h3>I mind my business. The universe clocks in.</h3>
+              <p>
+                A running theme: I don’t chase noise. I build. And somehow, small gifts keep
+                showing up anyway.
+              </p>
+              <a class="btn" href="#contact">Say hi</a>
+            </div>
+          </article>
+
+          <article class="featureCard">
+            <div class="featureMedia">
+              <img
+                src="https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&w=1600&q=80"
+                alt="City geometry"
+                loading="lazy"
+              />
+            </div>
+            <div class="featureBody">
+              <div class="featureTag">Project</div>
+              <h3>Soft architecture</h3>
+              <p>
+                A place that feels like a warm table, not a stage. The kind of page you return to
+                when you want calm more than commentary.
+              </p>
+              <a class="btn" href="#collections">Explore</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / UPDATES -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="updates">
+          <div>
+            <strong>Stay in the loop</strong>
+            <span>Drop an email if you want the occasional update. Clean signal only.</span>
+          </div>
+
+          <form class="form" onsubmit="event.preventDefault(); alert('Saved. (We can wire this to a real email list later.)');">
+            <input class="input" type="email" required placeholder="Email address" aria-label="Email address" />
+            <button class="btn primary" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap"><div class="hairline"></div></div>
+
+    <footer>
+      <div class="wrap">
+        <div class="footRow">
+          <div>
+            <div style="font-weight:650; color:#111; margin-bottom:6px;">iamamyeliza</div>
+            <div>© <span id="year"></span> · quiet builders change everything.</div>
+          </div>
+
+          <div class="footLinks" aria-label="Footer links">
+            <!-- Replace with real links when you have them -->
+            <a href="#top">Top</a>
+            <a href="#collections">Collection</a>
+            <a href="#notes">Notes</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const btn = document.getElementById("menuBtn");
+    const drawer = document.getElementById("drawer");
+
+    btn.addEventListener("click", () => {
+      const open = drawer.classList.toggle("open");
+      btn.setAttribute("aria-expanded", String(open));
+      btn.textContent = open ? "Close" : "Menu";
+    });
+
+    drawer.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => {
+        drawer.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+        btn.textContent = "Menu";
+      });
+    });
+  </script>
+</body>
+</html>
+
 
