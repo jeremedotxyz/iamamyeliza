@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Studio — Landing</title>
-  <meta name="description" content="A minimal, fine-art inspired landing page." />
+  <title>iamamyeliza — a small room for quiet work</title>
+  <meta name="description" content="A small internet room for quiet sentences, soft architecture, and low-volume magic." />
+
   <style>
     :root{
       --bg:#ffffff;
@@ -17,8 +18,6 @@
       --shadow:0 14px 38px rgba(0,0,0,.08);
       --ease:cubic-bezier(.2,.8,.2,1);
     }
-
-    /* Reset-ish */
     *{ box-sizing:border-box; }
     html,body{ height:100%; }
     body{
@@ -35,7 +34,6 @@
     .wrap{ max-width:var(--max); margin:0 auto; padding:0 var(--pad); }
     .hairline{ border-top:1px solid var(--line); }
 
-    /* Header */
     header{
       position:sticky;
       top:0;
@@ -55,7 +53,7 @@
       display:flex;
       align-items:center;
       gap:10px;
-      font-weight:600;
+      font-weight:650;
       letter-spacing:.6px;
       text-transform:uppercase;
       font-size:13px;
@@ -91,9 +89,7 @@
       transition:transform .2s var(--ease), background .2s var(--ease);
     }
     .menuBtn:hover{ background:#f7f7f7; transform:translateY(-1px); }
-    .menuBtn:active{ transform:translateY(0); }
 
-    /* Mobile drawer */
     .drawer{
       display:none;
       border-top:1px solid var(--line);
@@ -107,10 +103,7 @@
     }
     .drawer a:hover{ color:var(--fg); }
 
-    /* Hero */
-    .hero{
-      padding:28px 0 10px;
-    }
+    .hero{ padding:28px 0 10px; }
     .heroGrid{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
@@ -139,9 +132,8 @@
       background:linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,.42) 100%);
       pointer-events:none;
     }
-    .heroText{
-      padding:18px 6px;
-    }
+
+    .heroText{ padding:18px 6px; }
     .kicker{
       color:var(--muted);
       text-transform:uppercase;
@@ -154,13 +146,22 @@
       font-size:44px;
       line-height:1.02;
       letter-spacing:-.02em;
-      font-weight:650;
+      font-weight:700;
     }
+    .cursor{
+      display:inline-block;
+      width:.6ch;
+      margin-left:.1ch;
+      opacity:.8;
+      animation:blink 1.05s steps(1) infinite;
+    }
+    @keyframes blink{ 50%{ opacity:0; } }
+
     .sub{
       color:var(--muted);
       font-size:16px;
       line-height:1.55;
-      max-width:46ch;
+      max-width:52ch;
       margin:0 0 18px;
     }
     .ctaRow{
@@ -190,10 +191,7 @@
     }
     .btn.primary:hover{ background:#000; border-color:#000; }
 
-    /* Collections */
-    section{
-      padding:34px 0;
-    }
+    section{ padding:34px 0; }
     .sectionTitle{
       display:flex;
       align-items:baseline;
@@ -207,12 +205,9 @@
       letter-spacing:.18em;
       text-transform:uppercase;
       color:var(--muted);
-      font-weight:650;
+      font-weight:700;
     }
-    .sectionHint{
-      color:var(--muted);
-      font-size:13px;
-    }
+    .sectionHint{ color:var(--muted); font-size:13px; }
 
     .grid{
       display:grid;
@@ -229,375 +224,4 @@
     }
     .tile:hover{
       transform:translateY(-3px);
-      box-shadow:0 18px 40px rgba(0,0,0,.07);
-      border-color:#dedede;
-    }
-    .tile .name{
-      font-weight:620;
-      letter-spacing:.01em;
-      margin:0 0 6px;
-      font-size:14px;
-    }
-    .tile .meta{
-      color:var(--muted);
-      font-size:12px;
-      margin:0;
-      line-height:1.45;
-    }
 
-    /* Feature blocks */
-    .feature{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:18px;
-      align-items:stretch;
-    }
-    .featureCard{
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      overflow:hidden;
-      background:#fff;
-    }
-    .featureMedia{
-      aspect-ratio: 16 / 10;
-      background:#f3f3f3;
-      overflow:hidden;
-    }
-    .featureMedia img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transition:transform .5s var(--ease);
-      filter:contrast(1.02) saturate(.95);
-    }
-    .featureCard:hover .featureMedia img{
-      transform:scale(1.03);
-    }
-    .featureBody{
-      padding:16px 16px 18px;
-    }
-    .featureBody h3{
-      margin:0 0 6px;
-      font-size:20px;
-      letter-spacing:-.01em;
-    }
-    .featureTag{
-      color:var(--muted);
-      font-size:12px;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      margin:0 0 10px;
-    }
-    .featureBody p{
-      margin:0 0 14px;
-      color:var(--muted);
-      line-height:1.55;
-      font-size:14px;
-      max-width:60ch;
-    }
-
-    /* Updates */
-    .updates{
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:18px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      background:#fff;
-    }
-    .updates strong{
-      font-size:14px;
-      letter-spacing:.01em;
-    }
-    .updates span{
-      display:block;
-      color:var(--muted);
-      font-size:13px;
-      margin-top:3px;
-      line-height:1.4;
-    }
-    .form{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-    .input{
-      border:1px solid var(--line);
-      border-radius:999px;
-      padding:11px 14px;
-      min-width:240px;
-      font-size:13px;
-      outline:none;
-      transition:border-color .2s var(--ease), box-shadow .2s var(--ease);
-    }
-    .input:focus{
-      border-color:#cfcfcf;
-      box-shadow:0 0 0 4px rgba(0,0,0,.06);
-    }
-
-    /* Footer */
-    footer{
-      padding:26px 0 38px;
-      color:var(--muted);
-      font-size:12px;
-    }
-    .footRow{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
-    }
-    .footLinks{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-    .footLinks a:hover{ color:var(--fg); }
-
-    /* Responsive */
-    @media (max-width: 980px){
-      .heroGrid{ grid-template-columns: 1fr; }
-      .heroCard{ min-height:420px; }
-      h1{ font-size:40px; }
-      .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .feature{ grid-template-columns: 1fr; }
-      nav.desktop{ display:none; }
-      .menuBtn{ display:inline-flex; }
-      .drawer.open{ display:block; }
-    }
-    @media (max-width: 520px){
-      h1{ font-size:34px; }
-      .grid{ grid-template-columns: 1fr; }
-      .updates{ flex-direction:column; align-items:flex-start; }
-      .form{ width:100%; justify-content:flex-start; }
-      .input{ min-width:0; width:100%; }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="wrap">
-      <div class="topbar">
-        <a class="brand" href="#top" aria-label="Home">
-          <span class="dot" aria-hidden="true"></span>
-          <span>Studio</span>
-        </a>
-
-        <nav class="desktop" aria-label="Primary">
-          <a href="#collections">Collections</a>
-          <a href="#books">Books</a>
-          <a href="#initiatives">Initiatives</a>
-          <a href="#artist">Artist</a>
-        </nav>
-
-        <button class="menuBtn" id="menuBtn" aria-expanded="false" aria-controls="drawer">
-          Menu
-        </button>
-      </div>
-
-      <div class="drawer" id="drawer" aria-label="Mobile menu">
-        <a href="#collections">Collections</a>
-        <a href="#books">Books</a>
-        <a href="#initiatives">Initiatives</a>
-        <a href="#artist">Artist</a>
-      </div>
-    </div>
-  </header>
-
-  <main id="top">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="wrap">
-        <div class="heroGrid">
-          <div class="heroCard" aria-label="Hero image">
-            <!-- Replace with your own hero image -->
-            <img
-              src="https://images.unsplash.com/photo-1520975682031-ae3dfc5c6f5b?auto=format&fit=crop&w=1800&q=80"
-              alt="Monochrome landscape"
-              loading="eager"
-            />
-            <div class="heroOverlay"></div>
-          </div>
-
-          <div class="heroText">
-            <div class="kicker">Fine Art / Minimal</div>
-            <h1>Embodied</h1>
-            <p class="sub">
-              A quiet, image-forward collection space. Designed like a gallery wall:
-              clean typography, generous whitespace, and a soft-hover rhythm.
-            </p>
-
-            <div class="ctaRow">
-              <a class="btn primary" href="#collections">View Collection</a>
-              <a class="btn" href="#updates">Get Updates</a>
-            </div>
-
-            <p class="sectionHint">
-              (Swap the copy + images and you’re live. Tay Tay would call it a “clean era transition.”)
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="wrap"><div class="hairline"></div></div>
-
-    <!-- COLLECTIONS -->
-    <section id="collections">
-      <div class="wrap">
-        <div class="sectionTitle">
-          <h2>Collections</h2>
-          <div class="sectionHint">Fine art photography collections</div>
-        </div>
-
-        <div class="grid" role="list">
-          <a class="tile" href="#" role="listitem">
-            <p class="name">Embodied</p>
-            <p class="meta">A fine art photography collection</p>
-          </a>
-          <a class="tile" href="#" role="listitem">
-            <p class="name">Observed</p>
-            <p class="meta">Light, form, quiet tension</p>
-          </a>
-          <a class="tile" href="#" role="listitem">
-            <p class="name">Geometrica</p>
-            <p class="meta">Edges, symmetry, precision</p>
-          </a>
-          <a class="tile" href="#" role="listitem">
-            <p class="name">Naturale</p>
-            <p class="meta">Organic minimal studies</p>
-          </a>
-          <a class="tile" href="#" role="listitem">
-            <p class="name">Opaque</p>
-            <p class="meta">Muted tones + restraint</p>
-          </a>
-          <a class="tile" href="#" role="listitem">
-            <p class="name">Coded</p>
-            <p class="meta">Patterns in the noise</p>
-          </a>
-          <a class="tile" href="#" role="listitem">
-            <p class="name">Death Valley</p>
-            <p class="meta">Stillness found in isolation</p>
-          </a>
-          <a class="tile" href="#" role="listitem">
-            <p class="name">Fissure</p>
-            <p class="meta">Breaks, seams, negative space</p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- UPDATES -->
-    <section id="updates">
-      <div class="wrap">
-        <div class="updates">
-          <div>
-            <strong>Get updates</strong>
-            <span>New drops, books, and initiatives — no spam, just clean signal.</span>
-          </div>
-
-          <form class="form" onsubmit="event.preventDefault(); alert('Saved. (Wire this to your email tool when ready.)');">
-            <input class="input" type="email" required placeholder="Email address" aria-label="Email address" />
-            <button class="btn primary" type="submit">Subscribe</button>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURE: BOOK + INITIATIVE -->
-    <section>
-      <div class="wrap">
-        <div class="feature">
-          <article class="featureCard" id="books">
-            <div class="featureMedia">
-              <img
-                src="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?auto=format&fit=crop&w=1600&q=80"
-                alt="Desert light and shadow"
-                loading="lazy"
-              />
-            </div>
-            <div class="featureBody">
-              <div class="featureTag">New Photo Book</div>
-              <h3>Death Valley</h3>
-              <p>
-                Five years in the making — a tribute to serenity found in isolation.
-                Light + shadow, vastness + quiet.
-              </p>
-              <a class="btn" href="#">View Book</a>
-            </div>
-          </article>
-
-          <article class="featureCard" id="initiatives">
-            <div class="featureMedia">
-              <img
-                src="https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&w=1600&q=80"
-                alt="City geometry"
-                loading="lazy"
-              />
-            </div>
-            <div class="featureBody">
-              <div class="featureTag">Initiative Highlight</div>
-              <h3>The East Cut</h3>
-              <p>
-                A limited-edition project showcasing an emerging neighborhood —
-                raising awareness through prints + book format.
-              </p>
-              <a class="btn" href="#">View Initiative</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <div class="wrap"><div class="hairline"></div></div>
-
-    <!-- FOOTER -->
-    <footer id="artist">
-      <div class="wrap">
-        <div class="footRow">
-          <div>
-            <div style="font-weight:600; color:#111; margin-bottom:6px;">Studio</div>
-            <div>All content © <span id="year"></span> · Fine Art Photography</div>
-          </div>
-
-          <div class="footLinks" aria-label="Footer links">
-            <a href="#">FAQs</a>
-            <a href="#">Inquiries</a>
-            <a href="#updates">Updates</a>
-            <a href="#" aria-label="Instagram">Instagram</a>
-            <a href="#" aria-label="Foundation">Foundation</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </main>
-
-  <script>
-    // Year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Mobile menu
-    const btn = document.getElementById("menuBtn");
-    const drawer = document.getElementById("drawer");
-
-    btn.addEventListener("click", () => {
-      const open = drawer.classList.toggle("open");
-      btn.setAttribute("aria-expanded", String(open));
-      btn.textContent = open ? "Close" : "Menu";
-    });
-
-    // Close drawer on link click
-    drawer.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => {
-        drawer.classList.remove("open");
-        btn.setAttribute("aria-expanded", "false");
-        btn.textContent = "Menu";
-      });
-    });
-  </script>
-</body>
-</html>
