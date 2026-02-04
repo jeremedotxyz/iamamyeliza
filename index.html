@@ -64,4 +64,304 @@
       background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
       box-shadow:var(--shadow);
       position:relative;
-      overflow:hidd
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* the "graphic" side */
+    .art{
+      position:relative;
+      border-right:1px solid rgba(241,238,252,.10);
+      overflow:hidden;
+    }
+
+    /* sunrise halo */
+    .art:before{
+      content:"";
+      position:absolute;
+      width:620px; height:620px;
+      right:-220px; top:-260px;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(255,230,175,.26), transparent 60%),
+        radial-gradient(circle at 50% 70%, rgba(255,140,185,.14), transparent 68%);
+      filter:blur(1px);
+      animation:sunrise 14s ease-in-out infinite alternate;
+      opacity:.95;
+    }
+
+    /* candle ember */
+    .art:after{
+      content:"";
+      position:absolute;
+      width:320px; height:320px;
+      left:-140px; bottom:-150px;
+      background:radial-gradient(circle at 50% 50%, var(--ember), transparent 62%);
+      animation:flicker 3.6s ease-in-out infinite;
+      opacity:.8;
+      filter:blur(1px);
+    }
+
+    /* minimalist "candle + horizon" lines */
+    .lines{
+      position:absolute;
+      inset:0;
+      opacity:.9;
+    }
+    .horizon{
+      position:absolute;
+      left:8%;
+      right:8%;
+      top:58%;
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(241,238,252,.26), transparent);
+    }
+    .candle{
+      position:absolute;
+      left:22%;
+      top:38%;
+      width:2px;
+      height:140px;
+      background:linear-gradient(180deg, rgba(241,238,252,.55), rgba(241,238,252,.08));
+      border-radius:999px;
+      opacity:.8;
+    }
+    .wick{
+      position:absolute;
+      left:calc(22% - 6px);
+      top:calc(38% - 34px);
+      width:14px;
+      height:26px;
+      border-radius:999px;
+      background:radial-gradient(circle at 50% 60%, rgba(255,230,175,.65), rgba(255,200,120,.18), transparent 70%);
+      filter:blur(.2px);
+      animation:flicker 2.8s ease-in-out infinite;
+    }
+    .ring{
+      position:absolute;
+      left:58%;
+      top:28%;
+      width:220px;
+      height:220px;
+      border-radius:999px;
+      border:1px solid rgba(241,238,252,.12);
+      box-shadow: 0 0 0 12px rgba(255,255,255,.01);
+      transform:rotate(12deg);
+      opacity:.8;
+    }
+    .ring2{
+      position:absolute;
+      left:52%;
+      top:34%;
+      width:260px;
+      height:260px;
+      border-radius:999px;
+      border:1px dashed rgba(241,238,252,.10);
+      transform:rotate(-8deg);
+      opacity:.55;
+    }
+
+    @keyframes flicker{
+      0%,100%{transform:translate(0,0) scale(1); opacity:.62}
+      35%{transform:translate(6px,-3px) scale(1.03); opacity:.78}
+      70%{transform:translate(-5px,2px) scale(.98); opacity:.58}
+    }
+    @keyframes sunrise{
+      0%{transform:translateY(0) scale(1)}
+      100%{transform:translateY(18px) scale(1.03)}
+    }
+
+    /* the text side */
+    .copy{
+      padding:34px 34px 28px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:18px;
+      position:relative;
+    }
+
+    .top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .name{
+      font-family:var(--serif);
+      font-size:34px;
+      letter-spacing:.8px;
+      text-transform:lowercase;
+      line-height:1;
+    }
+
+    .tag{
+      font-family:var(--mono);
+      font-size:12px;
+      color:var(--dim);
+      letter-spacing:.6px;
+      text-transform:lowercase;
+    }
+
+    .status{
+      font-family:var(--mono);
+      font-size:11px;
+      color:rgba(241,238,252,.40);
+      border:1px solid rgba(241,238,252,.12);
+      background:rgba(255,255,255,.03);
+      padding:8px 10px;
+      border-radius:999px;
+      white-space:nowrap;
+      text-transform:lowercase;
+    }
+
+    .headline{
+      margin-top:10px;
+      font-family:var(--serif);
+      font-size:26px;
+      line-height:1.18;
+      letter-spacing:.4px;
+      text-transform:lowercase;
+    }
+
+    .sub{
+      margin-top:10px;
+      max-width:44ch;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.8;
+      text-transform:lowercase;
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    a.btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(241,238,252,.14);
+      background:rgba(255,255,255,.04);
+      color:var(--ink);
+      text-decoration:none;
+      font-family:var(--mono);
+      font-size:12px;
+      letter-spacing:.4px;
+      text-transform:lowercase;
+      transition:transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    a.btn:hover{
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.07);
+      border-color:rgba(241,238,252,.22);
+    }
+
+    .footer{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:14px;
+      padding-top:18px;
+      border-top:1px solid rgba(241,238,252,.10);
+      color:rgba(241,238,252,.40);
+      font-family:var(--mono);
+      font-size:11px;
+      text-transform:lowercase;
+    }
+    .links{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .links a{
+      color:rgba(241,238,252,.45);
+      text-decoration:none;
+      border-bottom:1px dashed rgba(241,238,252,.16);
+      padding-bottom:2px;
+    }
+    .links a:hover{
+      color:var(--ink);
+      border-bottom-color:rgba(241,238,252,.45);
+    }
+
+    @media (max-width: 880px){
+      body{overflow:auto}
+      .card{
+        height:auto;
+        grid-template-columns:1fr;
+      }
+      .art{
+        height:300px;
+        border-right:none;
+        border-bottom:1px solid rgba(241,238,252,.10);
+      }
+      .copy{padding:26px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="art" aria-hidden="true">
+        <div class="lines">
+          <div class="ring"></div>
+          <div class="ring2"></div>
+          <div class="horizon"></div>
+          <div class="candle"></div>
+          <div class="wick"></div>
+        </div>
+      </div>
+
+      <div class="copy">
+        <div>
+          <div class="top">
+            <div class="brand">
+              <div class="name">amy</div>
+              <div class="tag">writer · gothic warmth · sunrise light</div>
+            </div>
+            <div class="status">new work soon</div>
+          </div>
+
+          <div class="headline">candlelit sentences. morning windows.</div>
+          <div class="sub">
+            a small internet room for stories that feel like dusk,
+            but always leave a door cracked open for dawn.
+          </div>
+
+          <div class="actions">
+            <a class="btn" href="mailto:hello@amywrites.com">email</a>
+            <a class="btn" href="#" title="replace with her instagram link">instagram</a>
+            <a class="btn" href="#" title="replace with her substack link">substack</a>
+          </div>
+        </div>
+
+        <div class="footer">
+          <div>© <span id="year"></span> amy</div>
+          <div class="links">
+            <a href="#" title="replace with a link to her press kit">press</a>
+            <a href="#" title="replace with a link to her work">work</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
