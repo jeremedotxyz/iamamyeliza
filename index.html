@@ -115,4 +115,397 @@
 
     .heroMedia{
       width:100%;
-      aspect-ratio: 16 /
+      aspect-ratio: 16 / 9;
+      background:#f3f3f3;
+      border:1px solid var(--line);
+      overflow:hidden;
+    }
+    .heroMedia .ph{
+      width:100%;
+      height:100%;
+      background:
+        radial-gradient(900px 520px at 75% 20%, rgba(255,195,125,.55), transparent 55%),
+        radial-gradient(700px 520px at 25% 35%, rgba(30,30,30,.25), transparent 60%),
+        linear-gradient(180deg, #f7f7f7, #efefef);
+    }
+
+    .heroTitle{
+      font-family:var(--serif);
+      font-size:52px;
+      line-height:1.05;
+      letter-spacing:.4px;
+      margin:0;
+      text-transform:lowercase;
+    }
+
+    .heroSub{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.7;
+      max-width:65ch;
+      text-transform:lowercase;
+    }
+
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      width:max-content;
+      border-bottom:1px solid #bdbdbd;
+      padding-bottom:3px;
+      font-family:var(--mono);
+      font-size:12px;
+      letter-spacing:.8px;
+      text-transform:lowercase;
+      color:var(--ink);
+    }
+    .cta:hover{ border-bottom-color:#000; }
+
+    .section{
+      margin-top:42px;
+      padding-top:26px;
+      border-top:1px solid var(--line);
+    }
+
+    .section h2{
+      margin:0 0 16px;
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.9px;
+      color:var(--muted);
+      text-transform:lowercase;
+    }
+
+    .list{
+      display:grid;
+      gap:10px;
+      padding:0;
+      margin:0;
+      list-style:none;
+    }
+    .list a{
+      display:block;
+      padding:10px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .list a:hover{ border-bottom-color:#cfcfcf; }
+
+    .list .itemTitle{
+      font-family:var(--serif);
+      font-size:20px;
+      letter-spacing:.2px;
+      text-transform:lowercase;
+    }
+    .list .itemMeta{
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.8px;
+      color:var(--muted);
+      text-transform:lowercase;
+      margin-top:4px;
+    }
+
+    .feature{ display:grid; gap:26px; }
+    .featureCard{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:18px;
+      align-items:start;
+      padding-top:22px;
+      border-top:1px solid var(--line);
+    }
+    .featureCard:first-child{ border-top:0; padding-top:0; }
+
+    .featureMedia{
+      border:1px solid var(--line);
+      background:#f3f3f3;
+      aspect-ratio: 4 / 3;
+      overflow:hidden;
+    }
+    .featureMedia .ph{
+      width:100%;
+      height:100%;
+      background:
+        radial-gradient(700px 420px at 70% 20%, rgba(255,195,125,.50), transparent 55%),
+        radial-gradient(600px 420px at 30% 60%, rgba(25,25,25,.22), transparent 60%),
+        linear-gradient(180deg, #f6f6f6, #ededed);
+    }
+
+    .featureTitle{
+      font-family:var(--serif);
+      font-size:34px;
+      margin:0;
+      text-transform:lowercase;
+      letter-spacing:.25px;
+      line-height:1.1;
+    }
+    .featureKicker{
+      margin-top:8px;
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.9px;
+      color:var(--muted);
+      text-transform:lowercase;
+    }
+    .featureBody{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.8;
+      text-transform:lowercase;
+      max-width:60ch;
+    }
+
+    footer{
+      margin-top:44px;
+      padding:18px 0 34px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.7px;
+      text-transform:lowercase;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .footlinks{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .footlinks a{
+      border-bottom:1px solid transparent;
+      padding-bottom:2px;
+    }
+    .footlinks a:hover{ border-bottom-color:#cfcfcf; }
+
+    .overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(255,255,255,.94);
+      display:none;
+      z-index:100;
+    }
+    .overlay.open{ display:block; }
+
+    .overlayInner{
+      width:var(--wrap);
+      margin:0 auto;
+      padding:24px 0;
+    }
+    .overlayTop{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      border-bottom:1px solid var(--line);
+      padding:18px 0;
+    }
+    .overlayTitle{
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.9px;
+      color:var(--muted);
+      text-transform:lowercase;
+    }
+    .closeBtn{
+      border:0;
+      background:transparent;
+      cursor:pointer;
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.8px;
+      color:var(--muted);
+      text-transform:lowercase;
+      border-bottom:1px solid transparent;
+      padding:6px 0;
+    }
+    .closeBtn:hover{ color:var(--ink); border-bottom-color:#cfcfcf; }
+
+    .overlayLinks{
+      padding:22px 0;
+      display:grid;
+      gap:10px;
+    }
+    .overlayLinks a{
+      font-family:var(--serif);
+      font-size:34px;
+      line-height:1.12;
+      text-transform:lowercase;
+      border-bottom:1px solid var(--line);
+      padding:12px 0;
+    }
+    .overlayLinks a:hover{ border-bottom-color:#cfcfcf; }
+
+    @media (max-width: 900px){
+      .heroTitle{ font-size:40px; }
+      .featureCard{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top">
+        <span class="name">amy</span>
+        <span class="tag">writer</span>
+      </a>
+
+      <div class="navlinks" aria-label="primary">
+        <a href="#writing">writing</a>
+        <a href="#updates">updates</a>
+        <a href="mailto:hello@amywrites.com">inquiries</a>
+        <button class="menuBtn" id="openMenu" type="button">open menu</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" id="top">
+    <section class="hero" aria-label="hero">
+      <div class="heroMedia" role="img" aria-label="hero image">
+        <div class="ph"></div>
+      </div>
+
+      <h1 class="heroTitle">morning rooms</h1>
+      <p class="heroSub">
+        gothic warmth. candlelight. sunrise on the page.
+      </p>
+
+      <a class="cta" href="#writing">view writing →</a>
+    </section>
+
+    <section class="section" id="writing">
+      <h2>writing</h2>
+      <ul class="list">
+        <li>
+          <a href="#">
+            <div class="itemTitle">essays</div>
+            <div class="itemMeta">quiet observations</div>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <div class="itemTitle">short fiction</div>
+            <div class="itemMeta">gothic + intimate</div>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <div class="itemTitle">poems</div>
+            <div class="itemMeta">candlelit fragments</div>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <div class="itemTitle">archive</div>
+            <div class="itemMeta">all work</div>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section" id="updates">
+      <h2>get updates</h2>
+
+      <div class="feature">
+        <article class="featureCard">
+          <div class="featureMedia" role="img" aria-label="feature image 1">
+            <div class="ph"></div>
+          </div>
+          <div>
+            <h3 class="featureTitle">new letter</h3>
+            <div class="featureKicker">subscriber note</div>
+            <div class="featureBody">
+              occasional dispatches: new work, small lines, sunrise rituals. no noise.
+            </div>
+            <div style="margin-top:14px;">
+              <a class="cta" href="#">get updates →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="featureCard">
+          <div class="featureMedia" role="img" aria-label="feature image 2">
+            <div class="ph"></div>
+          </div>
+          <div>
+            <h3 class="featureTitle">featured piece</h3>
+            <div class="featureKicker">highlight</div>
+            <div class="featureBody">
+              a story about candle smoke, thresholds, and the exact moment morning becomes possible again.
+            </div>
+            <div style="margin-top:14px;">
+              <a class="cta" href="#">view →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footlinks">
+        <a href="#">faqs</a>
+        <a href="mailto:hello@amywrites.com">inquiries</a>
+        <a href="#updates">updates</a>
+      </div>
+      <div>© <span id="year"></span> amy</div>
+    </footer>
+  </main>
+
+  <div class="overlay" id="overlay" aria-hidden="true">
+    <div class="overlayInner">
+      <div class="overlayTop">
+        <div class="overlayTitle">menu</div>
+        <button class="closeBtn" id="closeMenu" type="button">close menu</button>
+      </div>
+
+      <nav class="overlayLinks" aria-label="menu links">
+        <a href="#writing">writing</a>
+        <a href="#updates">updates</a>
+        <a href="mailto:hello@amywrites.com">inquiries</a>
+      </nav>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const overlay = document.getElementById("overlay");
+    const openMenu = document.getElementById("openMenu");
+    const closeMenu = document.getElementById("closeMenu");
+
+    function openOverlay(){
+      overlay.classList.add("open");
+      overlay.setAttribute("aria-hidden","false");
+      openMenu.textContent = "close menu";
+    }
+    function closeOverlay(){
+      overlay.classList.remove("open");
+      overlay.setAttribute("aria-hidden","true");
+      openMenu.textContent = "open menu";
+    }
+
+    openMenu.addEventListener("click", () => {
+      overlay.classList.contains("open") ? closeOverlay() : openOverlay();
+    });
+
+    closeMenu.addEventListener("click", closeOverlay);
+
+    overlay.addEventListener("click", (e) => {
+      if(e.target === overlay) closeOverlay();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if(e.key === "Escape") closeOverlay();
+    });
+
+    document.querySelectorAll(".overlayLinks a").forEach(a => {
+      a.addEventListener("click", () => closeOverlay());
+    });
+  </script>
+</body>
+</html>
