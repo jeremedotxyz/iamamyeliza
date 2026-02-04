@@ -1,72 +1,511 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>iamamyeliza</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>amy</title>
+  <meta name="description" content="amy — writer. gothic mornings. sunrise light." />
+  <style>
+    :root{
+      --bg:#0b0b10;
+      --ink:#f3f1ff;
+      --muted:rgba(243,241,255,.72);
+      --dim:rgba(243,241,255,.46);
+      --line:rgba(243,241,255,.14);
 
-<style>
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  background: #0f0f0f;
-  color: #f2f2f2;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
+      --serif: ui-serif, "Iowan Old Style", "Palatino", "Garamond", "Georgia", serif;
+      --sans: ui-sans-serif, system-ui, -apple-system, "segoe ui", roboto, "helvetica neue", arial;
+      --mono: ui-monospace, sfmono-regular, menlo, monaco, consolas, "liberation mono", "courier new", monospace;
 
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+      --radius:22px;
+      --shadow:0 30px 90px rgba(0,0,0,.58);
+    }
 
-.hero {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background-image: url("hero.jpg");
-  background-size: cover;
-  background-position: center;
-}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--ink);
+      font-family:var(--sans);
+      letter-spacing:.2px;
+    }
 
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-}
+    /* soft grain */
+    body:before{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+      mix-blend-mode:overlay;
+      opacity:.14;
+    }
 
-.content {
-  position: absolute;
-  bottom: 48px;
-  left: 48px;
-}
+    a{color:inherit}
+    .wrap{width:min(1120px, 92vw); margin:0 auto;}
 
-.logo {
-  font-size: 14px;
-  letter-spacing: 0.12em;
-  opacity: 0.85;
-}
+    /* top nav */
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(10px);
+      background:rgba(11,11,16,.72);
+      border-bottom:1px solid rgba(243,241,255,.10);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:baseline;
+      gap:14px;
+      text-decoration:none;
+    }
+    .brand .name{
+      font-family:var(--serif);
+      font-size:18px;
+      letter-spacing:.7px;
+      text-transform:lowercase;
+    }
+    .brand .sub{
+      font-family:var(--mono);
+      font-size:11px;
+      color:var(--dim);
+      letter-spacing:.7px;
+      text-transform:lowercase;
+    }
 
-.tagline {
-  margin-top: 10px;
-  font-size: 18px;
-  max-width: 420px;
-  line-height: 1.4;
-  opacity: 0.9;
-}
-</style>
+    .right{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .iconlink{
+      font-family:var(--mono);
+      font-size:11px;
+      color:var(--dim);
+      text-decoration:none;
+      border-bottom:1px solid transparent;
+      padding-bottom:2px;
+    }
+    .iconlink:hover{
+      color:var(--ink);
+      border-bottom-color:rgba(243,241,255,.28);
+    }
+
+    .menuBtn{
+      border:1px solid rgba(243,241,255,.14);
+      background:rgba(255,255,255,.03);
+      color:var(--ink);
+      border-radius:999px;
+      padding:8px 12px;
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.7px;
+      text-transform:lowercase;
+      cursor:pointer;
+    }
+    .menuBtn:hover{background:rgba(255,255,255,.06)}
+
+    /* hero */
+    .hero{
+      margin:22px auto 18px;
+      border-radius:calc(var(--radius) + 10px);
+      overflow:hidden;
+      border:1px solid rgba(243,241,255,.12);
+      box-shadow:var(--shadow);
+      position:relative;
+      min-height:520px;
+      display:grid;
+      align-items:end;
+    }
+
+    /* replace this gradient with a real photo if you want:
+       .heroMedia { background-image:url("your-image.jpg"); background-size:cover; } */
+    .heroMedia{
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 520px at 75% 15%, rgba(255,195,125,.22), transparent 58%),
+        radial-gradient(700px 520px at 25% 35%, rgba(255,120,170,.14), transparent 58%),
+        linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.02)),
+        linear-gradient(180deg, #07070d, #0b0b10);
+      transform:scale(1.02);
+    }
+    .heroMedia:after{
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(180deg, transparent 0%, rgba(11,11,16,.30) 45%, rgba(11,11,16,.92) 100%);
+    }
+
+    .heroInner{
+      position:relative;
+      padding:34px 26px 26px;
+      width:min(720px, 92%);
+    }
+    .kicker{
+      font-family:var(--mono);
+      font-size:11px;
+      color:rgba(243,241,255,.52);
+      letter-spacing:.9px;
+      text-transform:lowercase;
+    }
+    h1{
+      margin:10px 0 10px;
+      font-family:var(--serif);
+      font-size:52px;
+      line-height:1.02;
+      letter-spacing:.8px;
+      text-transform:lowercase;
+    }
+    .lead{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.8;
+      text-transform:lowercase;
+      max-width:60ch;
+    }
+
+    .ctaRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(243,241,255,.14);
+      background:rgba(255,255,255,.04);
+      text-decoration:none;
+      font-family:var(--mono);
+      font-size:12px;
+      letter-spacing:.6px;
+      text-transform:lowercase;
+      transition:transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .btn:hover{
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.07);
+      border-color:rgba(243,241,255,.22);
+    }
+    .btn.primary{
+      background:rgba(243,241,255,.10);
+      border-color:rgba(243,241,255,.20);
+    }
+
+    /* below-hero minimal list blocks */
+    .row{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:16px;
+      margin:16px 0 28px;
+    }
+    .panel{
+      border:1px solid rgba(243,241,255,.10);
+      background:rgba(255,255,255,.02);
+      border-radius:var(--radius);
+      overflow:hidden;
+    }
+    .panelHead{
+      padding:14px 16px;
+      border-bottom:1px solid rgba(243,241,255,.10);
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap:10px;
+    }
+    .panelHead .title{
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.9px;
+      color:rgba(243,241,255,.55);
+      text-transform:lowercase;
+    }
+    .panelHead .tiny{
+      font-family:var(--mono);
+      font-size:11px;
+      color:rgba(243,241,255,.35);
+      text-transform:lowercase;
+    }
+    .list{
+      padding:14px 16px 16px;
+      display:grid;
+      gap:10px;
+    }
+    .list a{
+      text-decoration:none;
+      border-bottom:1px solid rgba(243,241,255,.10);
+      padding-bottom:8px;
+    }
+    .list a:hover{
+      border-bottom-color:rgba(243,241,255,.30);
+    }
+    .list .item{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      align-items:baseline;
+    }
+    .list .item span:first-child{
+      font-family:var(--serif);
+      font-size:18px;
+      letter-spacing:.3px;
+      text-transform:lowercase;
+    }
+    .list .item span:last-child{
+      font-family:var(--mono);
+      font-size:11px;
+      color:rgba(243,241,255,.40);
+      text-transform:lowercase;
+      white-space:nowrap;
+    }
+
+    /* featured blocks like milkovi */
+    .feature{
+      display:grid;
+      grid-template-columns: 1fr;
+    }
+    .featureCard{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      min-height:240px;
+    }
+    .img{
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.02)),
+        radial-gradient(600px 380px at 70% 20%, rgba(255,195,125,.18), transparent 60%),
+        linear-gradient(180deg, #07070d, #0b0b10);
+      border-right:1px solid rgba(243,241,255,.10);
+    }
+    .content{
+      padding:18px 16px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:10px;
+    }
+    .content h3{
+      margin:0;
+      font-family:var(--serif);
+      font-size:30px;
+      letter-spacing:.4px;
+      text-transform:lowercase;
+    }
+    .content .meta{
+      font-family:var(--mono);
+      font-size:11px;
+      color:rgba(243,241,255,.45);
+      letter-spacing:.8px;
+      text-transform:lowercase;
+    }
+    .content p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.8;
+      text-transform:lowercase;
+    }
+
+    footer{
+      padding:18px 0 40px;
+      color:rgba(243,241,255,.38);
+      font-family:var(--mono);
+      font-size:11px;
+      text-transform:lowercase;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      border-top:1px solid rgba(243,241,255,.10);
+    }
+
+    /* menu overlay */
+    .overlay{
+      position:fixed; inset:0;
+      background:rgba(7,7,13,.72);
+      backdrop-filter: blur(10px);
+      display:none;
+      z-index:100;
+    }
+    .overlay.open{display:block}
+    .sheet{
+      width:min(520px, 92vw);
+      margin:90px auto;
+      border:1px solid rgba(243,241,255,.14);
+      background:rgba(255,255,255,.04);
+      border-radius:var(--radius);
+      padding:16px;
+      box-shadow:var(--shadow);
+    }
+    .sheetTop{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:10px;
+    }
+    .sheetTitle{
+      font-family:var(--mono);
+      font-size:11px;
+      color:rgba(243,241,255,.55);
+      letter-spacing:.9px;
+      text-transform:lowercase;
+    }
+    .closeBtn{
+      border:1px solid rgba(243,241,255,.14);
+      background:rgba(255,255,255,.03);
+      color:var(--ink);
+      border-radius:999px;
+      padding:8px 12px;
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.7px;
+      text-transform:lowercase;
+      cursor:pointer;
+    }
+    .closeBtn:hover{background:rgba(255,255,255,.06)}
+    .sheetLinks{
+      display:grid;
+      gap:10px;
+      padding-top:8px;
+      border-top:1px solid rgba(243,241,255,.10);
+    }
+    .sheetLinks a{
+      text-decoration:none;
+      border-bottom:1px solid rgba(243,241,255,.10);
+      padding:10px 2px;
+      font-family:var(--serif);
+      font-size:20px;
+      text-transform:lowercase;
+    }
+    .sheetLinks a:hover{border-bottom-color:rgba(243,241,255,.28)}
+
+    @media (max-width: 900px){
+      h1{font-size:42px}
+      .row{grid-template-columns:1fr}
+      .featureCard{grid-template-columns:1fr}
+      .img{min-height:220px; border-right:none; border-bottom:1px solid rgba(243,241,255,.10);}
+      .hero{min-height:520px}
+    }
+  </style>
 </head>
 
 <body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#" aria-label="amy home">
+        <div class="name">amy</div>
+        <div class="sub">writer</div>
+      </a>
 
-<div class="hero">
-  <div class="overlay"></div>
+      <div class="right">
+        <a class="iconlink" href="#" title="replace with instagram">instagram</a>
+        <a class="iconlink" href="#" title="replace with newsletter">updates</a>
+        <button class="menuBtn" id="openMenu">menu</button>
+      </div>
+    </div>
+  </header>
 
-  <div class="content">
-    <div class="logo">iamamyeliza</div>
-    <div class="tagline">a small internet room for quiet sentences</div>
+  <main class="wrap">
+    <section class="hero">
+      <div class="heroMedia" aria-hidden="true"></div>
+
+      <div class="heroInner">
+        <div class="kicker">gothic warmth · candlelight · sunrise</div>
+        <h1>amy</h1>
+        <p class="lead">
+          writing that keeps the room quiet — and still lets the morning in.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="#" title="replace with 'read' link">read</a>
+          <a class="btn" href="#" title="replace with newsletter link">get updates</a>
+          <a class="btn" href="mailto:hello@amywrites.com">inquiries</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="row" aria-label="below hero">
+      <div class="panel">
+        <div class="panelHead">
+          <div class="title">writing</div>
+          <div class="tiny">selected</div>
+        </div>
+        <div class="list">
+          <a href="#" title="replace with link">
+            <div class="item"><span>essays</span><span>sunrise notes</span></div>
+          </a>
+          <a href="#" title="replace with link">
+            <div class="item"><span>short fiction</span><span>gothic, quiet</span></div>
+          </a>
+          <a href="#" title="replace with link">
+            <div class="item"><span>poems</span><span>candlelit</span></div>
+          </a>
+          <a href="#" title="replace with link">
+            <div class="item"><span>archive</span><span>all work</span></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="panel feature">
+        <div class="panelHead">
+          <div class="title">featured</div>
+          <div class="tiny">new</div>
+        </div>
+
+        <div class="featureCard">
+          <div class="img" aria-hidden="true"></div>
+          <div class="content">
+            <div class="meta">new piece</div>
+            <h3>morning rooms</h3>
+            <p>
+              a small collection of beginnings — light, shadow, and the rituals that keep you steady.
+            </p>
+            <div style="margin-top:6px">
+              <a class="btn" href="#" title="replace with link">view</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> amy</div>
+      <div>
+        <a class="iconlink" href="mailto:hello@amywrites.com">hello@amywrites.com</a>
+      </div>
+    </footer>
+  </main>
+
+  <div class="overlay" id="overlay" aria-hidden="true">
+    <div class="sheet" role="dialog" aria-modal="true" aria-label="menu">
+      <div class="sheetTop">
+        <div class="sheetTitle">menu</div>
+        <button class="closeBtn" id="closeMenu">close</button>
+      </div>
+      <div class="sheetLinks">
+        <a href="#" title="replace">writing</a>
+        <a href="#" title="replace">about</a>
+        <a href="#" title="replace">updates</a>
+        <a href="mailto:hello@amywrites.com">inquiries</a>
+      </div>
+    </div>
   </div>
-</div>
 
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+    const overlay = document.getElementById("overlay");
+    document.getElementById("openMenu").onclick = () => overlay.classList.add("open");
+    document.getElementById("closeMenu").onclick = () => overlay.classList.remove("open");
+    overlay.addEventListener("click", (e) => { if (e.target === overlay) overlay.classList.remove("open"); });
+    window.addEventListener("keydown", (e) => { if (e.key === "Escape") overlay.classList.remove("open"); });
+  </script>
 </body>
 </html>
